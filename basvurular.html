@@ -1,0 +1,264 @@
+ <!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Başvurular - ESERKON</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f0f8ff;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #1a3d7c;
+      font-size: 32px;
+    }
+
+    p {
+      text-align: center;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    /* Sekme Butonları */
+    .tab-btn-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tab-btn {
+      padding: 10px 16px;
+      background: #e0e0e0;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #333;
+      transition: all 0.3s;
+    }
+
+    .tab-btn.active {
+      background: #006d77;
+      color: white;
+    }
+
+    .tab-btn:hover {
+      background: #ccc;
+    }
+
+    /* Form Sekmeleri */
+    .tab-content {
+      display: none;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    }
+
+    .tab-content h2 {
+      color: #006d77;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+    }
+
+    button[type="submit"] {
+      background: #006d77;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    /* Ana Sayfaya Dön */
+    .home-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+      z-index: 9999;
+    }
+
+    .home-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANA SAYFAYA DÖN -->
+  <a class="home-btn" href="index.html">🏠 Ana Sayfaya Dön</a>
+
+  <!-- İÇERİK -->
+  <div class="container">
+    <h1>Bize Katıl</h1>
+    <p>Aşağıdan ilgini çeken alanı seçerek başvuru yapabilirsiniz.</p>
+
+    <!-- Sekmeler -->
+    <div class="tab-btn-container">
+      <button class="tab-btn active" onclick="openTab('ogretmen')">Gönüllü Öğretmen</button>
+      <button class="tab-btn" onclick="openTab('ogrenci')">Öğrenci Üye</button>
+      <button class="tab-btn" onclick="openTab('gonullu')">Gönüllü Üye</button>
+      <button class="tab-btn" onclick="openTab('destek')">Destek Ol</button>
+    </div>
+
+    <!-- Gönüllü Öğretmen -->
+    <div id="ogretmen" class="tab-content" style="display:block;">
+      <h2>Gönüllü Öğretmen Başvuru</h2>
+      <form action="https://formspree.io/f/mgvglwbz" method="POST">
+        <input type="hidden" name="form_type" value="gönetmen">
+        <input type="text" name="adsoyad" placeholder="Ad Soyad" required>
+        <input type="tel" name="telefon" placeholder="Telefon" required>
+        <input type="email" name="email" placeholder="E-posta" required>
+        <input type="text" name="sehir" placeholder="Şehir / İl" required>
+        <select name="brans" required>
+          <option value="">Branş Seçiniz</option>
+          <option>Matematik</option>
+          <option>Türkçe</option>
+          <option>İngilizce</option>
+          <option>Fen Bilimleri</option>
+          <option>Sosyal Bilgiler</option>
+          <option>Din Kültürü</option>
+          <option>Diğer</option>
+        </select>
+        <select name="seviye" required>
+          <option value="">Ders Seviyesi</option>
+          <option>İlkokul</option>
+          <option>Ortaokul</option>
+          <option>Lise</option>
+          <option>Üniversite Hazırlık</option>
+        </select>
+        <textarea name="mesaj" placeholder="Kendiniz hakkında kısa bilgi / tecrübe" required></textarea>
+        <button type="submit">Gönder</button>
+      </form>
+    </div>
+
+    <!-- Öğrenci Üye -->
+    <div id="ogrenci" class="tab-content">
+      <h2>Öğrenci Üye Ol</h2>
+      <form action="https://formspree.io/f/mgvglwbz" method="POST">
+        <input type="hidden" name="form_type" value="öğrenci">
+        <input type="text" name="adsoyad" placeholder="Ad Soyad" required>
+        <input type="tel" name="telefon" placeholder="Telefon" required>
+        <input type="email" name="email" placeholder="E-posta" required>
+        <input type="text" name="okul" placeholder="Okulunuz" required>
+        <input type="text" name="bolum" placeholder="Bölümünüz" required>
+        <select name="talep" required>
+          <option value="">Talebiniz</option>
+          <option>Etüt</option>
+          <option>Sosyal Etkinlikler</option>
+          <option>Barınma</option>
+          <option>Ulaşım</option>
+          <option>Yemek</option>
+          <option>Burs</option>
+          <option>Diğer</option>
+        </select>
+        <button type="submit">Gönder</button>
+      </form>
+    </div>
+
+    <!-- Gönüllü Üye -->
+    <div id="gonullu" class="tab-content">
+      <h2>Gönüllü Üye Ol</h2>
+      <form action="https://formspree.io/f/mgvglwbz" method="POST">
+        <input type="hidden" name="form_type" value="gönüllü">
+        <input type="text" name="adsoyad" placeholder="Ad Soyad" required>
+        <input type="tel" name="telefon" placeholder="Telefon" required>
+        <input type="email" name="email" placeholder="E-posta" required>
+        <input type="text" name="yas" placeholder="Yaşınız" required>
+        <input type="text" name="meslek" placeholder="Mesleğiniz / Eğitim Durumu" required>
+        <select name="ilgi_alani" required>
+          <option value="">İlgi Alanınız</option>
+          <option>Eğitim</option>
+          <option>Sosyal Yardım</option>
+          <option>Çevre</option>
+          <option>Kültür Sanat</option>
+          <option>Sağlık</option>
+          <option>Diğer</option>
+        </select>
+        <textarea name="mesaj" placeholder="Neden gönüllü olmak istiyorsunuz?" required></textarea>
+        <button type="submit">Üye Ol</button>
+      </form>
+    </div>
+
+    <!-- Destek Ol -->
+    <div id="destek" class="tab-content">
+      <h2>Destek Ol</h2>
+      <form action="https://formspree.io/f/mgvglwbz" method="POST">
+        <input type="hidden" name="form_type" value="destek">
+        <input type="text" name="adsoyad" placeholder="Ad Soyad" required>
+        <input type="email" name="email" placeholder="E-posta" required>
+        <input type="tel" name="telefon" placeholder="Telefon">
+        <select name="destek_turu" required>
+          <option value="">Destek Türü</option>
+          <option>Finansal Destek</option>
+          <option>Malzeme Bağışı</option>
+          <option>Zaman / Gönüllülük</option>
+          <option>Eğitim Desteği</option>
+          <option>Ulaşım Desteği</option>
+          <option>Konaklama Desteği</option>
+          <option>Kahvaltı / Yemek Desteği</option>
+          <option>Burs Desteği</option>
+          <option>Diğer</option>
+        </select>
+        <textarea name="mesaj" placeholder="Nasıl destek olmak istersiniz? (Detay yazın)"></textarea>
+        <button type="submit">Gönder</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Sekmeler için JS -->
+  <script>
+    function openTab(tabName) {
+      const tabs = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none";
+      }
+      document.getElementById(tabName).style.display = "block";
+
+      const buttons = document.getElementsByClassName("tab-btn");
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+      event.currentTarget.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
