@@ -135,7 +135,27 @@
       background: #005f66;
     }
 
-    /* MOBİL */
+    /* BURS KISMI (Gizli) */
+    #bursKisim {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      background: #f8f9fa;
+      border: 1px solid #006d77;
+      border-radius: 12px;
+    }
+
+    /* NOT */
+    .note {
+      background: #fff3cd;
+      color: #856404;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      margin: 15px 0;
+      border: 1px solid #ffeaa7;
+    }
+
     @media (max-width: 600px) {
       .tab-btn { width: 100%; }
       .container { padding: 10px; }
@@ -153,9 +173,9 @@
 
   <!-- SEKMELER -->
   <div class="tabs">
-    <button class="tab-btn active" onclick="openTab('ogretmen')">🧑‍🏫 Öğretmen</button>
-    <button class="tab-btn" onclick="openTab('ogrenci')">🎓 Öğrenci</button>
-    <button class="tab-btn" onclick="openTab('gonullu')">🤝 Üye / Gönüllü</button>
+    <button class="tab-btn active" onclick="openTab('ogretmen')">🧑‍🏫 Gönüllü Öğretmen</button>
+    <button class="tab-btn" onclick="openTab('ogrenci')">🎓 Öğrenci Üye Ol</button>
+    <button class="tab-btn" onclick="openTab('gonullu')">🤝 Gönüllü Üye</button>
     <button class="tab-btn" onclick="openTab('destek')">💖 Destek Ol</button>
   </div>
 
@@ -172,139 +192,210 @@
       <div class="form-group"><input type="email" name="email" placeholder="E-posta *" required></div>
       <div class="form-group"><input type="text" name="sehir" placeholder="Şehir *" required></div>
       <div class="form-group">
-        <select name="brans" required><option value="">Branş Seçiniz *</option>
+        <select name="brans" required><option value="">Branş *</option>
           <option>Matematik</option><option>Türkçe</option><option>İngilizce</option>
           <option>Fen Bilimleri</option><option>Sosyal Bilgiler</option><option>Diğer</option>
         </select>
       </div>
-        <!-- BURS BAŞVURUSU İSTEĞİ -->
-    <div class="form-group">
-      <label>
-        <input type="checkbox" id="bursIste" onchange="toggleBursSection()"> 
-        <strong>Burs başvurusu yapmak istiyorum</strong>
-      </label>
+      <div class="form-group">
+        <select name="seviye" required><option value="">Seviye *</option>
+          <option>İlkokul</option><option>Ortaokul</option><option>Lise</option><option>Üniversite</option>
+        </select>
+      </div>
+      <div class="form-group"><textarea name="mesaj" placeholder="Kendinizi tanıtın..." required></textarea></div>
+      <button type="submit" class="btn">Başvur</button>
+    </form>
+  </div>
+
+  <!-- ÖĞRENCİ -->
+  <div id="ogrenci" class="tab-content">
+    <div class="form-header">
+      <img src="https://source.unsplash.com/random/800x400/?student,study" alt="Öğrenci Üye Ol">
+      <h2>Öğrenci Üye Ol</h2>
     </div>
-
-    <!-- BURS ALANLARI (İsteğe Bağlı) -->
-    <div id="bursSection" style="display: none; margin-top: 25px; padding: 20px; background: #f8f9fa; border: 1px solid #006d77; border-radius: 10px;">
-      <h3 style="color:#006d77; border-bottom:1px solid #ddd; padding-bottom:8px;">📌 Burs Başvuru Bilgileri</h3>
-      <p style="color: #555; font-size: 14px; margin-bottom: 15px;">Lütfen burs başvurusu için gerekli bilgileri doldurun.</p>
-
-      <!-- 4. GELİR VE KONAKLAMA -->
-      <h3 style="color:#006d77; margin-top:20px; border-bottom:1px solid #ddd; padding-bottom:8px;">Gelir ve Konaklama</h3>
+    <form onsubmit="sendForm(event, 'ogrenci')">
+      <input type="hidden" name="form_type" value="Öğrenci Üye">
+      <div class="form-group"><input type="text" name="adsoyad" placeholder="Ad Soyad *" required></div>
+      <div class="form-group"><input type="tel" name="telefon" placeholder="Telefon *" required></div>
+      <div class="form-group"><input type="email" name="email" placeholder="E-posta *" required></div>
+      <div class="form-group"><input type="text" name="okul" placeholder="Okulunuz *" required></div>
+      <div class="form-group"><input type="text" name="bolum" placeholder="Bölümünüz"></div>
       <div class="form-group">
-        <label>Hane Aylık Toplam Geliri</label>
-        <select name="aylik_gelir">
-          <option value="">Seçiniz</option>
-          <option>0 - 10.000 TL</option>
-          <option>10.001 - 20.000 TL</option>
-          <option>20.001 - 35.000 TL</option>
-          <option>35.001 TL ve üzeri</option>
-          <option>Bilinmiyor</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Anne Mesleği</label>
-        <input type="text" name="anne_meslek" placeholder="Anne mesleği">
-      </div>
-      <div class="form-group">
-        <label>Baba Mesleği</label>
-        <input type="text" name="baba_meslek" placeholder="Baba mesleği">
-      </div>
-      <div class="form-group">
-        <label>İkamet Durumu</label>
-        <select name="ikamet">
-          <option value="">Seçiniz</option>
-          <option>Kira</option>
-          <option>Kendi Evi</option>
-          <option>Lojman</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Eğitim Sırasında Nerede Kalıyorsunuz?</label>
-        <select name="konaklama">
-          <option value="">Seçiniz</option>
-          <option>Aile Yanında</option>
-          <option>KYK Yurdu</option>
-          <option>Özel Yurt</option>
-          <option>Öğrenci Evi (Kira)</option>
+        <select name="sinif" required><option value="">Sınıfınız *</option>
+          <option>Hazırlık</option><option>1</option><option>2</option><option>3</option><option>4</option>
         </select>
       </div>
 
-      <!-- 5. ÖZEL DURUMLAR -->
-      <h3 style="color:#006d77; margin-top:20px; border-bottom:1px solid #ddd; padding-bottom:8px;">Özel Durumlar</h3>
+      <!-- BURS İSTEĞİ -->
       <div class="form-group">
-        <label>Engel Durumunuz Var mı?</label>
-        <select name="engel">
-          <option value="">Seçiniz</option>
-          <option>Yok</option>
-          <option>Var (% kaç?)</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Şehit veya Gazi Yakını mısınız?</label>
-        <select name="sehit_gazi">
-          <option value="">Seçiniz</option>
-          <option>Hayır</option>
-          <option>Evet</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Devlet Koruması Altında mıydınız?</label>
-        <select name="korumali">
-          <option value="">Seçiniz</option>
-          <option>Hayır</option>
-          <option>Evet (Yurt geçmişi var)</option>
-        </select>
+        <label>
+          <input type="checkbox" id="bursIste" onchange="toggleBurs()"> 
+          <strong>Burs başvurusu istiyorum</strong>
+        </label>
       </div>
 
-      <!-- AÇIKLAMA -->
-      <div class="form-group">
-        <label>Eklemek İstedikleriniz</label>
-        <textarea name="aciklama" placeholder="İsterseniz ek bilgi verin..."></textarea>
+      <!-- BURS KISMI -->
+      <div id="bursKisim">
+        <h3 style="color:#006d77; margin:20px 0 15px;">📌 Burs Başvuru Bilgileri</h3>
+
+        <div class="form-group">
+          <label>Genel Not Ortalaması (GNO)</label>
+          <input type="number" name="gno" step="0.01" min="0" max="4" placeholder="3.50" required>
+        </div>
+
+        <div class="form-group">
+          <label>Hane Aylık Geliri</label>
+          <select name="gelir" required>
+            <option>0 - 10.000 TL</option>
+            <option>10.001 - 20.000 TL</option>
+            <option>20.001 - 35.000 TL</option>
+            <option>35.001 TL ve üzeri</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Engel Durumu</label>
+          <select name="engel" required>
+            <option>Yok</option>
+            <option>Var</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Okuyan Kardeş Sayısı</label>
+          <select name="kardes_sayisi" required>
+            <option>Yok</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3+</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Şehit/Gazi Yakını mısınız?</label>
+          <select name="sehit_gazi" required>
+            <option>Hayır</option>
+            <option>Evet</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>KYK Yurdunda mı kaldınız?</label>
+          <select name="kyk" required>
+            <option>Hayır</option>
+            <option>Evet</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Açıklama (isteğe bağlı)</label>
+          <textarea name="aciklama" placeholder="Ek bilgi verin..."></textarea>
+        </div>
       </div>
 
-      <!-- BELGE UYARISI -->
-      <div class="note">
-        ⚠️ Başvurunuz değerlendirildikten sonra, öğrenci belgesi, gelir belgesi gibi belgeler istenecektir.
-      </div>
+      <button type="submit" class="btn">Başvur</button>
+    </form>
+  </div>
+
+  <!-- GÖNÜLLÜ ÜYE -->
+  <div id="gonullu" class="tab-content">
+    <div class="form-header">
+      <img src="https://source.unsplash.com/random/800x400/?volunteer,team" alt="Gönüllü Üye">
+      <h2>Gönüllü Üye Başvurusu</h2>
     </div>
+    <form onsubmit="sendForm(event, 'gonullu')">
+      <input type="hidden" name="form_type" value="Gönüllü Üye">
+      <div class="form-group"><input type="text" name="adsoyad" placeholder="Ad Soyad *" required></div>
+      <div class="form-group"><input type="tel" name="telefon" placeholder="Telefon *" required></div>
+      <div class="form-group"><input type="email" name="email" placeholder="E-posta *" required></div>
+      <div class="form-group"><input type="text" name="meslek" placeholder="Meslek *" required></div>
+      <div class="form-group">
+        <select name="ilgi" required><option>İlgi Alanı *</option>
+          <option>Eğitim</option><option>Sosyal Yardım</option><option>Çevre</option><option>Diğer</option>
+        </select>
+      </div>
+      <div class="form-group"><textarea name="mesaj" placeholder="Neden katılmak istiyorsunuz?" required></textarea></div>
+      <button type="submit" class="btn">Başvur</button>
+    </form>
+  </div>
 
-    <!-- GÖNDER BUTONU -->
-    <button type="submit" class="btn">Başvuruyu Gönder</button>
-  </form>
+  <!-- DESTEK OL -->
+  <div id="destek" class="tab-content">
+    <div class="form-header">
+      <img src="https://source.unsplash.com/random/800x400/?donation,help" alt="Destek Ol">
+      <h2>Destek Ol</h2>
+    </div>
+    <form onsubmit="sendForm(event, 'destek')">
+      <input type="hidden" name="form_type" value="Destek">
+      <div class="form-group"><input type="text" name="adsoyad" placeholder="Ad Soyad *" required></div>
+      <div class="form-group"><input type="email" name="email" placeholder="E-posta *" required></div>
+      <div class="form-group"><input type="tel" name="telefon" placeholder="Telefon (isteğe bağlı)"></div>
+
+      <div class="form-group">
+        <label>Destek Miktarı (TL)</label>
+        <input type="number" name="miktar" placeholder="Örn: 500" step="1" min="1">
+      </div>
+
+      <div class="form-group">
+        <label>Ödeme Yöntemi</label>
+        <select name="odeme" onchange="toggleIBAN(this.value)" required>
+          <option value="">Seçiniz</option>
+          <option value="iban">IBAN / EFT</option>
+          <option value="elden">Elden Nakit</option>
+          <option value="makbuz">Makbuz Karşılığı</option>
+        </select>
+      </div>
+
+      <div id="ibanBilgi" style="display:none; padding:15px; background:#e0f7fa; border-radius:8px; margin:10px 0;">
+        <p><strong>IBAN:</strong> TR00 0000 0000 0000 0000 0000 00</p>
+        <small>Lütfen açıklama kısmına adınızı yazın.</small>
+      </div>
+
+      <div class="form-group"><textarea name="mesaj" placeholder="Destekle ilgili notlarınız"></textarea></div>
+      <button type="submit" class="btn">Destek Talebini Gönder</button>
+    </form>
+  </div>
+
 </div>
 
-<!-- JAVASCRIPT -->
 <script>
-  function toggleBursSection() {
-    const section = document.getElementById('bursSection');
-    section.style.display = document.getElementById('bursIste').checked ? 'block' : 'none';
+  function openTab(tabName) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabName).classList.add('active');
+    document.querySelector(`[onclick="openTab('${tabName}')"]`).classList.add('active');
   }
 
-  document.querySelector('form').addEventListener('submit', function(e) {
+  function toggleBurs() {
+    const burs = document.getElementById('bursKisim');
+    burs.style.display = document.getElementById('bursIste').checked ? 'block' : 'none';
+  }
+
+  function toggleIBAN(val) {
+    document.getElementById('ibanBilgi').style.display = val === 'iban' ? 'block' : 'none';
+  }
+
+  function sendForm(e, tab) {
     e.preventDefault();
-    const form = this;
+    const form = e.target;
     fetch('https://formspree.io/f/xpqowknj', {
       method: 'POST',
       body: new FormData(form),
       headers: { 'Accept': 'application/json' }
-    })
-    .then(response => {
-      if (response.ok) {
+    }).then(r => {
+      if (r.ok) {
         form.reset();
-        document.getElementById('bursSection').style.display = 'none';
-        document.getElementById('bursIste').checked = false;
         document.getElementById('successMessage').style.display = 'block';
-        setTimeout(() => {
-          document.getElementById('successMessage').style.display = 'none';
-        }, 5000);
+        setTimeout(() => { document.getElementById('successMessage').style.display = 'none'; }, 5000);
+        if (tab === 'ogrenci') document.getElementById('bursKisim').style.display = 'none';
+        if (tab === 'destek') document.getElementById('ibanBilgi').style.display = 'none';
       }
-    })
-    .catch(err => {
-      alert('Bir hata oluştu. Lütfen tekrar deneyin.');
-    });
-  });
+    }).catch(() => alert('Hata oluştu. Lütfen tekrar deneyin.'));
+  }
+
+  // Başlangıç: burs kısmı kapalı
+  document.getElementById('bursKisim').style.display = 'none';
+  document.getElementById('ibanBilgi').style.display = 'none';
 </script>
 
 </body>
