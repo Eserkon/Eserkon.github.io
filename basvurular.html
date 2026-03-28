@@ -234,14 +234,20 @@
       </div>
       <div class="form-group"><input type="text" name="okul_adi" placeholder="Okul / Üniversite Adı *" required></div>
       <div class="form-group"><input type="text" name="bolum" placeholder="Bölümünüz"></div>
-<div style="margin: 25px 0; padding: 18px; background: #e0f2f1; border-radius: 10px;">
-  <label style="cursor: pointer; display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-    <input type="radio" name="burs_secim" id="bursIste" value="evet" onchange="toggleBurs()" style="width: 20px; height: 20px;">
+
+      <!-- Burs Seçimi - Zorunlu Alan -->
+<div style="margin: 25px 0; padding: 20px; background: #e0f2f1; border-radius: 10px; border: 1px solid #b2dfdb;">
+  <p style="margin-bottom: 12px; font-weight: 600; color: #006d77;">
+    Burs Talebi:
+  </p>
+  
+  <label style="cursor: pointer; display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 16px;">
+    <input type="radio" name="burs_secim" id="bursIste" value="evet" onchange="toggleBurs()" required>
     <strong>Maddi Burs Başvurusunda Bulunmak İstiyorum</strong>
   </label>
   
-  <label style="cursor: pointer; display: flex; align-items: center; gap: 12px;">
-    <input type="radio" name="burs_secim" id="sadeceUye" value="hayir" onchange="toggleBurs()" style="width: 20px; height: 20px;" checked>
+  <label style="cursor: pointer; display: flex; align-items: center; gap: 12px; font-size: 16px;">
+    <input type="radio" name="burs_secim" id="sadeceUye" value="hayir" onchange="toggleBurs()" required>
     <strong>Sadece Üye Olmak İstiyorum (Burs istemiyorum)</strong>
   </label>
 </div>
