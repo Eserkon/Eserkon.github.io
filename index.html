@@ -229,10 +229,13 @@
   z-index: 9999;
   font-family: 'Poppins', sans-serif;
 ">🏠 Ana Sayfaya Dön</a>
+<video id="ses" style="display:none" preload="auto">
+  <source src="kadin-sesi.mp4" type="video/mp4">
+</video>
+
 <script>
-document.addEventListener("click", function() {
-    const ses = new Audio("assets/kadin-sesi.mp3");
-    ses.play().catch(e => console.log("Ses oynatılamadı"));
+  document.addEventListener("click", function() {
+    document.getElementById("ses").play().catch(e => console.log("Ses engellendi"));
   }, { once: true });
 </script>
 
