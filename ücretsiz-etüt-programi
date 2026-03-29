@@ -1,0 +1,132 @@
+ <!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ücretsiz Etüt Programı - ESERKON</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.7;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #5c4033;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+    p {
+      margin-bottom: 16px;
+      font-size: 1.1em;
+    }
+    ul {
+      margin: 16px 0;
+      padding-left: 20px;
+    }
+    li {
+      margin: 8px 0;
+    }
+    .quote {
+      font-style: italic;
+      background: #f1f5f9;
+      padding: 20px;
+      border-left: 4px solid #7c5c3e;
+      margin: 25px 0;
+      color: #444;
+    }
+    .cta {
+      text-align: center;
+      margin: 30px 0;
+      font-weight: bold;
+      color: #7c5c3e;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎓 ESERKON Ücretsiz Etüt Programı</h1>
+    <p>Sevgili öğrenciler,</p>
+    <p>Eğitimde fırsat eşitliğini güçlendirmek ve akademik başarılarınıza destek olmak için <strong>ESERKON Ücretsiz Etüt Programı</strong> başlıyor!</p>
+
+    <p><strong>📅 Başlangıç Tarihi:</strong> 20 Mart 2026</p>
+
+    <h3>✨ Program İçeriği:</h3>
+    <ul>
+      <li>Sınavlara yönelik konu pekiştirme dersleri</li>
+      <li>Deneyimli gönüllü öğretmenlerle birebir destek</li>
+      <li>Soru çözüm saatleri ve ödev yardımı</li>
+      <li>Motivasyonu yüksek, sakin bir öğrenme ortamı</li>
+    </ul>
+
+    <h3>🎯 Kimler Katılabilir?</h3>
+    <p>İlkokul, ortaokul ve lise öğrencileri — herkes davetlidir.</p>
+
+    <h3>📌 Başvuru Nasıl Yapılır?</h3>
+    <p>Web sitemizdeki <strong>başvuru formunu</strong> doldurarak yerinizi ayırabilirsiniz.</p>
+
+    <div class="quote">
+      “Bazı öğrenciler derslerde geri kalır. Ama bu, zeki olmadığını değil — yeterince destek almadığını gösterir.”
+    </div>
+
+    <p>ESERKON olarak, <strong>hiçbir öğrencinin yalnız kalmaması</strong> için buradayız. Sadece not yükseltmek değil, <strong>“Ben de yapabilirim”</strong> dedirtebilmek istiyoruz. Her etüt saati, bir çocuğun özgüvenini yeniden inşa etme fırsatıdır.</p>
+
+    <p class="cta">💡 Eğitimde birlikte daha güçlüyüz. Hemen başvurun!</p>
+    <p class="cta">📢 Geleceğinizi birlikte inşa edelim.</p>
+  </div>
+<style>
+  .home-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #7c5c3e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .home-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  }
+  .home-btn:active {
+    transform: scale(0.95);
+  }
+</style>
+
+<button class="home-btn" onclick="window.location.href='index.html'">
+  🏠
+</button>
+</body>
+</html>
