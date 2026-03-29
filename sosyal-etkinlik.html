@@ -1,71 +1,175 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Etkinlikler - ESERKON</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sosyal Etkinlikler | ESERKON</title>
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f8f9fa;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
       color: #333;
-      line-height: 1.7;
-      padding: 20px;
     }
-    .container {
-      max-width: 900px;
+
+    /* HEADER - Mavi Gradient */
+    header {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      padding: 30px 10px;
+    }
+
+    .header-container {
+      max-width: 1200px;
       margin: auto;
-      background: white;
-      padding: 40px 30px;
-      border-radius: 16px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
     }
-    h1 {
+
+    .header-text {
+      flex: 3;
       text-align: center;
-      color: #5c4033;
-      margin-bottom: 25px;
-      font-size: 1.9em;
     }
-    h2 {
-      color: #7c5c3e;
-      margin: 25px 0 15px;
-      font-size: 1.3em;
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 32px;
+      word-wrap: break-word;
     }
-    ul {
+
+    .header-text p {
+      margin-top: 10px;
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    .header-img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .header-img img {
+      width: 100%;
+      max-width: 140px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    /* CONTENT */
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    }
+
+    .container h2 {
+      color: #2a5298;
+      margin: 20px 0 10px;
+      font-size: 1.4em;
+    }
+
+    .container ul {
       padding-left: 20px;
       margin: 15px 0;
     }
-    li {
+
+    .container li {
       margin: 8px 0;
+      line-height: 1.6;
     }
-    p {
-      margin-bottom: 16px;
-      font-size: 1.1em;
+
+    .container p {
+      line-height: 1.7;
+      font-size: 16px;
+      margin-bottom: 14px;
     }
+
     .cta {
-      text-align: center;
-      margin: 30px 0;
       font-weight: bold;
-      color: #7c5c3e;
+      color: #2a5298;
+      text-align: center;
+      margin: 20px 0;
     }
-    @media (max-width: 600px) {
+
+    /* BUTON */
+    .back-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2a5298;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    .back-button:hover {
+      background: #1e3c72;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    /* MOBİL UYUM */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+      }
+
+      .header-img img {
+        max-width: 110px;
+      }
+
+      .header-text h1 {
+        font-size: 24px;
+      }
+
       .container {
         padding: 20px;
-      }
-      h1 {
-        font-size: 1.6em;
-      }
-      p {
-        font-size: 1em;
       }
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1>🌱 Etkinlikler</h1>
 
+<body>
+
+  <!-- HEADER: Mavi Alan + Resimler -->
+  <header>
+    <div class="header-container">
+      <!-- SOL RESİM -->
+      <div class="header-img">
+        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94" alt="Sosyal Etkinlik">
+      </div>
+
+      <!-- ORTA BAŞLIK -->
+      <div class="header-text">
+        <h1>🌱 Sosyal Etkinlikler</h1>
+        <p>Gençlerin çok yönlü gelişimini destekliyoruz</p>
+      </div>
+
+      <!-- SAĞ RESİM -->
+      <div class="header-img">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622" alt="Sosyal Etkinlik">
+      </div>
+    </div>
+  </header>
+
+  <!-- TAM METİNLE DOLDURULMUŞ İÇERİK -->
+  <div class="container">
     <p>Geleceğin teminatı olan üniversite ve lise öğrencilerinin yalnızca akademik başarılarıyla değil; sosyal, kültürel ve kişisel gelişimleriyle de güçlenmeleri gerektiğine inanıyoruz. Bu doğrultuda, gençlerimizin bulundukları il ve ilçelerde aktif bireyler olarak yetişmelerini destekleyen çeşitli etkinlikler düzenlemekte ve onların yanında yer almaktayız.</p>
 
     <p>Etkinliklerimiz; öğrencilerin bilgi birikimlerini artırmalarına, yeteneklerini keşfetmelerine ve potansiyellerini en üst seviyeye taşımalarına katkı sağlamayı amaçlamaktadır. Eğitim seminerlerinden atölye çalışmalarına, sosyal sorumluluk projelerinden kültürel faaliyetlere kadar geniş bir yelpazede programlar sunarak, gençlerimizin çok yönlü gelişimini destekliyoruz.</p>
@@ -86,7 +190,13 @@
 
     <p class="cta">Sen de bulunduğun il veya ilçede bir etkinlik gerçekleştirmek, projene destek almak ya da etkinliklerimize katılmak istersen bizimle iletişime geçebilirsin.</p>
   </div>
-  <a href="https://www.eserkon.com.tr/anasayfa.html" style="position:fixed;bottom:20px;right:20px;background:#006d77;color:white;padding:12px 20px;border-radius:30px;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,0.2); font-weight: bold; z-index: 1000;">🏠 Ana Sayfaya Dön</a>
+
+  <!-- ANA SAYFAYA DÖN -->
+  <a href="anasayfa.html" class="back-button">🏠 Ana Sayfa</a>
+
+  <footer>
+    © 2026 ESERKON – Gençlerle, Gençliğe
+  </footer>
 
 </body>
 </html>
