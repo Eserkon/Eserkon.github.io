@@ -11,60 +11,67 @@
       font-family: Arial, sans-serif;
       background: #f4f6f9;
       color: #333;
-      line-height: 1.6;
     }
 
+    /* HEADER */
     header {
       background: linear-gradient(135deg, #1e3c72, #2a5298);
       color: white;
-      padding: 40px 20px;
+      padding: 30px 10px;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-text {
+      text-align: center;
+      flex: 2;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    .header-text p {
+      margin-top: 10px;
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
+    .header-img {
+      flex: 1;
       text-align: center;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 32px;
+    .header-img img {
+      width: 90%;
+      max-width: 180px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
+    /* CONTENT */
     .container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 30px auto;
       background: white;
       padding: 25px;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.08);
-      display: flex;
-      gap: 20px;
-    }
-
-    .content {
-      flex: 2;
-    }
-
-    .side-image {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .side-image img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
     }
 
     h2 {
       color: #2a5298;
-      margin-top: 25px;
     }
 
     ul {
       padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 10px;
     }
 
     /* SABİT BUTON */
@@ -79,7 +86,6 @@
       text-decoration: none;
       font-size: 14px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: 0.3s;
     }
 
     .back-button:hover {
@@ -95,16 +101,17 @@
 
     /* MOBİL */
     @media (max-width: 768px) {
-      .container {
+      .header-container {
         flex-direction: column;
+        gap: 15px;
       }
 
-      .side-image {
-        order: -1;
+      .header-img img {
+        max-width: 120px;
       }
 
-      header h1 {
-        font-size: 24px;
+      .header-text h1 {
+        font-size: 22px;
       }
     }
   </style>
@@ -113,54 +120,50 @@
 <body>
 
   <header>
-    <h1>🎵 Konser Katılımları</h1>
-    <p>Öğrencilerimizin kültürel gelişimini destekleyen etkinlikler</p>
+    <div class="header-container">
+
+      <!-- SOL RESİM -->
+      <div class="header-img">
+        <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2" alt="Konser">
+      </div>
+
+      <!-- ORTA YAZI -->
+      <div class="header-text">
+        <h1>🎵 Konser Katılımları</h1>
+        <p>Öğrencilerimizin kültürel gelişimini destekleyen etkinlikler</p>
+      </div>
+
+      <!-- SAĞ RESİM -->
+      <div class="header-img">
+        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f" alt="Konser">
+      </div>
+
+    </div>
   </header>
 
   <div class="container">
 
-    <!-- SOL RESİM -->
-    <div class="side-image">
-      <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2" alt="Konser 1">
-    </div>
+    <p>
+      Sanatın ve müziğin birleştirici gücüne inanıyor, öğrencilerimizin kültürel gelişimlerini desteklemenin
+      en önemli yollarından birinin bu etkinlikler olduğunu düşünüyoruz.
+    </p>
 
-    <!-- ORTA İÇERİK -->
-    <div class="content">
+    <p>
+      Konserler; gençlerimizin sosyal bağlarını güçlendirdiği, farklı kültürleri tanıdığı ve kendilerini ifade ettiği önemli alanlardır.
+    </p>
 
-      <p>
-        Sanatın ve müziğin birleştirici gücüne inanıyor, öğrencilerimizin kültürel gelişimlerini desteklemenin
-        en önemli yollarından birinin de bu tür etkinlikler olduğunu düşünüyoruz.
-      </p>
-
-      <p>
-        Konserler; gençlerimizin sadece müzik dinlediği etkinlikler değil, aynı zamanda farklı kültürleri tanıdığı,
-        sosyal bağlarını güçlendirdiği ve kendilerini ifade etme fırsatı bulduğu önemli alanlardır.
-      </p>
-
-      <h2>Amaçlarımız</h2>
-      <ul>
-        <li>Kültürel farkındalık kazandırmak</li>
-        <li>Sanata ilgiyi artırmak</li>
-        <li>Sosyal bağları güçlendirmek</li>
-        <li>Motivasyonu yükseltmek</li>
-      </ul>
-
-      <p>
-        Öğrencilerimizin kendi il ve ilçelerinde düzenlenen etkinliklere katılımını destekliyor,
-        onların aktif bireyler olarak gelişmelerine katkı sağlıyoruz.
-      </p>
-
-    </div>
-
-    <!-- SAĞ RESİM -->
-    <div class="side-image">
-      <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f" alt="Konser 2">
-    </div>
+    <h2>Amaçlarımız</h2>
+    <ul>
+      <li>Kültürel farkındalık kazandırmak</li>
+      <li>Sanata ilgiyi artırmak</li>
+      <li>Sosyal çevreyi geliştirmek</li>
+      <li>Motivasyonu yükseltmek</li>
+    </ul>
 
   </div>
 
-  <!-- SABİT ANA SAYFA BUTONU -->
-  <a href="anasayfa.html" class="back-button">🏠 Ana Sayfa</a>
+  <!-- BUTON -->
+  <a href="index.html" class="back-button">🏠 Ana Sayfa</a>
 
   <footer>
     © 2026 ESERKON
