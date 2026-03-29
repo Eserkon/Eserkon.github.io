@@ -13,53 +13,58 @@
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
-    .category {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    h1 {
+      text-align: center;
+      color: #1a3d7c;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      text-align: center;
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 50px;
+      line-height: 1.6;
+    }
+
+    .category-title {
       background: #1a3d7c;
       color: white;
       padding: 14px 20px;
       border-radius: 10px 10px 0 0;
       font-weight: bold;
-      font-size: 17px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .category img {
-      width: 28px;
-      height: 28px;
-      object-fit: contain;
+      font-size: 18px;
+      text-align: center;
+      margin-top: 30px;
     }
 
     .sponsor-card {
       background: white;
       border-radius: 0 0 10px 10px;
-      padding: 18px;
-      margin: 0 0 25px 0;
+      padding: 25px;
+      margin: 0 0 20px 0;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: 0.3s;
+      text-align: center;
     }
 
-    .sponsor-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+    .sponsor-card img {
+      max-width: 200px;
+      max-height: 100px;
+      object-fit: contain;
+      margin: 10px auto 18px;
+      display: block;
     }
 
-    .sponsor-card h3 {
-      margin: 8px 0;
-      color: #1a3d7c;
-      font-size: 18px;
-    }
-
-    .sponsor-card p {
-      margin: 6px 0;
-      color: #555;
-      font-size: 14px;
+    .sponsor-card .note {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.7;
+      font-style: italic;
     }
 
     .home-btn {
@@ -76,10 +81,6 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       z-index: 999;
     }
-
-    .home-btn:hover {
-      background: #005fa3;
-    }
   </style>
 </head>
 <body>
@@ -87,67 +88,36 @@
   <a href="anasayfa.html" class="home-btn">← Ana Sayfa</a>
 
   <div class="container">
+    <h1>Teşekkürler</h1>
+    <p class="description">
+      Gençlerin gelişimine katkı sunan tüm sponsor kurum ve kuruluşlarımıza içten teşekkür ederiz.
+    </p>
 
-    <!-- SAĞLIK & HASTANELER -->
-    <div class="category">
-      <img src="https://cdn-icons-png.flaticon.com/32/3221/3221665.png" alt="Sağlık">
-      SAĞLIK & HASTANELER
-    </div>
+    <!-- KATEGORİ: TEKNOLOJİ & YAZILIM -->
+    <div class="category-title">TEKNOLOJİ & YAZILIM</div>
     <div class="sponsor-card">
-      <h3>Özel Sağlık Hastanesi</h3>
-      <p>Ücretsiz sağlık taraması ve danışmanlık desteği</p>
-    </div>
-    <div class="sponsor-card">
-      <h3>MedLife Kliniği</h3>
-      <p>Psikolojik destek ve sağlık atölyeleri</p>
-    </div>
-
-    <!-- SEYAHAT & TURİZM -->
-    <div class="category">
-      <img src="https://cdn-icons-png.flaticon.com/32/2492/2492235.png" alt="Seyahat">
-      SEYAHAT & TURİZM
-    </div>
-    <div class="sponsor-card">
-      <h3>Truzim Seyahat</h3>
-      <p>Öğrenci etkinlikleri için ulaşım desteği</p>
-    </div>
-    <div class="sponsor-card">
-      <h3>Deniz Turizm</h3>
-      <p>Konaklama imkânı ve gezi organizasyonu</p>
+      <img src="https://via.placeholder.com/200x100?text=Pi+Yapay+Zeka" alt="Pi Yapay Zeka">
+      <p class="note">
+        Pi Yapay Zeka'ya, gençlerin dijital becerilerini geliştirmeleri için sağladığı destekten dolayı teşekkür ederiz.
+      </p>
     </div>
 
-    <!-- EĞİTİM KURUMLARI -->
-    <div class="category">
-      <img src="https://cdn-icons-png.flaticon.com/32/1168/1168322.png" alt="Eğitim">
-      EĞİTİM KURUMLARI
-    </div>
+    <!-- KATEGORİ: SEYAHAT & TURİZM -->
+    <div class="category-title">SEYAHAT & TURİZM</div>
     <div class="sponsor-card">
-      <h3>Yıldız Dershaneleri</h3>
-      <p>Ücretsiz etüt ve ders desteği</p>
-    </div>
-    <div class="sponsor-card">
-      <h3>Bilim Okulları</h3>
-      <p>Online sınav hazırlık platformu</p>
+      <img src="https://via.placeholder.com/200x100?text=Truzim+Seyahat" alt="Truzim Seyahat">
+      <p class="note">
+        Truzim Seyahat'e, öğrenci etkinliklerinde ulaşım desteği sundukları için minnettarız.
+      </p>
     </div>
 
-    <!-- TEKNOLOJİ & YAZILIM -->
-    <div class="category">
-      <img src="https://cdn-icons-png.flaticon.com/32/3616/3616673.png" alt="Teknoloji">
-      TEKNOLOJİ & YAZILIM
-    </div>
+    <!-- KATEGORİ: SAĞLIK & HASTANELER -->
+    <div class="category-title">SAĞLIK & HASTANELER</div>
     <div class="sponsor-card">
-      <h3>TeknoSoft A.Ş.</h3>
-      <p>Web altyapı ve dijital destek</p>
-    </div>
-
-    <!-- SPOR KULÜPLERİ -->
-    <div class="category">
-      <img src="https://cdn-icons-png.flaticon.com/32/3524/3524670.png" alt="Spor">
-      SPOR KULÜPLERİ
-    </div>
-    <div class="sponsor-card">
-      <h3>Yeşilspor Kulübü</h3>
-      <p>Antrenman sahası ve gençlik kampları</p>
+      <img src="https://via.placeholder.com/200x100?text=Özel+Hastane" alt="Özel Hastane">
+      <p class="note">
+        Özel Sağlık Hastanesi'ne, gençlerimize ücretsiz sağlık taraması sağladıkları için teşekkür ederiz.
+      </p>
     </div>
 
   </div>
