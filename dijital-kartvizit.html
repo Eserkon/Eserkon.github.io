@@ -1,251 +1,349 @@
 <!DOCTYPE html>
+
 <html lang="tr">
+
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ESERKON Katılım Formları</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Dijital Kartvizit - ESERKON</title>
+
   <style>
+
     body {
-      font-family: 'Poppins', sans-serif;
+
       margin: 0;
+
       padding: 0;
-      background: #0d1b2a;
-      color: white;
-      min-height: 100vh;
-    }
-    .hero {
+
+      height: 100vh;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+
+      font-family: Arial, sans-serif;
+
       text-align: center;
-      padding: 60px 20px;
-      min-height: 70vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+
     }
-    .hero img.big-logo {
-      max-width: 240px;
-      margin-bottom: 30px;
-    }
-    .hero img.inline-logo {
-      width: 1.15em;
-      height: 1.15em;
-      vertical-align: middle;
-      margin: 0 0.06em;
-      border-radius: 50%;
-      box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
-      object-fit: contain;
-    }
-    .hero-text h1 {
-      font-size: 3.5rem;
-      margin: 10px 0;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.05em;
-      animation: eskon-heartbeat 1.6s ease-in-out infinite alternate;
-    }
-    .hero-text p {
-      font-size: 1.4rem;
-      letter-spacing: 2px;
-      margin: 15px 0 40px;
-      font-weight: 600;
-      animation: slogan-pulse 3s ease-in-out infinite;
-    }
-    @keyframes eskon-heartbeat {
-      from { transform: scale(1); text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff, 0 0 50px #00c6ff, 0 0 80px #0095ff; }
-      to   { transform: scale(1.18); text-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff, 0 0 80px #00c6ff, 0 0 140px #0095ff; }
-    }
-    @keyframes slogan-pulse {
-      0%,100% { transform: scale(1); text-shadow: 0 0 12px rgba(255,255,255,0.6); }
-      50% { transform: scale(1.14); text-shadow: 0 0 20px #00ff9d, 0 0 35px #ffdd00, 0 0 55px #ff6b6b, 0 0 70px #c084fc; }
-    }
-    .green { color: #00ff9d; }
-    .orange { color: #ffaa00; }
-    .purple { color: #c084fc; }
-    .darkred { color: #e63946; }
-    .eskon-white { color: white; }
-    .qr-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin: -30px auto 80px;
-    }
-    .qr-box {
-      max-width: 320px;
-      padding: 25px;
+
+    /* KART */
+
+    .qr-card {
+
       background: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      text-align: center;
-      color: #0d1b2a;
-    }
-    .qr-box .title, .qr-box .subtitle {
-      font-weight: 600;
-      animation: heartbeat-text 1.8s ease-in-out infinite alternate;
-    }
-    .qr-box .title { font-size: 1.2rem; color: #0077b6; margin: 8px 0; }
-    .qr-box .subtitle { font-size: 1rem; color: #1b263b; margin: 8px 0 20px; }
-    @keyframes heartbeat-text {
-      from { transform: scale(1); text-shadow: 0 0 8px rgba(0,0,0,0.2),0 0 12px rgba(0,119,182,0.5);}
-      to { transform: scale(1.08); text-shadow:0 0 10px rgba(0,0,0,0.3),0 0 20px rgba(0,119,182,0.8),0 0 30px rgba(0,119,182,0.6);}
-    }
-    .qr-box img { width: 220px; border-radius: 8px; box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
 
-    /* POPUP */
-    .popup { display: none; position: fixed; inset: 0; background: rgba(13,27,42,0.92); z-index: 1000; align-items: center; justify-content: center; }
-    .popup.active { display: flex; }
-    .popup-content { background: #1b263b; padding: 40px; border-radius: 16px; max-width: 500px; width: 100%; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.6);}
-    .close-btn { position: absolute; top: 12px; right: 20px; font-size: 2.2rem; cursor: pointer; color: #aaa;}
-    .close-btn:hover { color: white; }
-    h2 { margin-bottom: 1.2rem; font-size: 1.8rem; }
+      padding: 40px 30px;
 
-    /* Duyurular / Etkinlikler */
-    .events-section { max-width: 1000px; margin: 0 auto 100px; padding: 20px; }
-    .event-card {
-      background: #1b263b;
-      border-radius: 16px;
-      padding: 20px;
+      border-radius: 30px;
+
+      box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+
+      max-width: 350px;
+
+      width: 90%;
+
+    }
+
+    /* ÜST BAŞLIK */
+
+    .qr-title {
+
       margin-bottom: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 5px;
+
     }
-    .event-card:hover { transform: translateY(-5px); }
-    .event-card h3 { font-size: 1.6rem; margin-bottom: 8px; color: #00eaff; }
-    .event-card p { font-size: 1rem; margin-bottom: 12px; }
-    .event-card button {
-      background: #0077b6;
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 8px;
-      cursor: pointer;
+
+    .qr-title .line1 {
+
+      font-size: 22px;
+
+      font-weight: bold;
+
+      color: #0f2027;
+
+      animation: slideDown 1s ease forwards;
+
+      opacity: 0;
+
+    }
+
+    .qr-title .line2 {
+
+      font-size: 16px;
+
+      color: #0077ff;
+
       font-weight: 600;
-      transition: background 0.3s ease;
+
+      animation: pulseHeart 1.5s infinite;
+
+      opacity: 0;
+
+      animation-delay: 0.4s;
+
     }
-    .event-card button:hover { background: #00eaff; }
-    /* Responsive */
-    @media (max-width:768px){
-      .hero-text h1 { font-size: 2.5rem; }
-      .hero-text p { font-size: 1.1rem; }
-      .qr-box img { width: 180px; }
-      .event-card h3 { font-size: 1.4rem; }
+
+    @keyframes slideDown {
+
+      from { transform: translateY(-40px); opacity: 0; }
+
+      to { transform: translateY(0); opacity: 1; }
+
     }
+
+    @keyframes pulseHeart {
+
+      0% { transform: scale(1); opacity: 1; }
+
+      50% { transform: scale(1.15); opacity: 0.8; }
+
+      100% { transform: scale(1); opacity: 1; }
+
+    }
+
+    /* QR */
+
+    .qr-wrapper {
+
+      position: relative;
+
+      display: inline-block;
+
+    }
+
+    .qr-logo {
+
+      width: 50px;
+
+      height: 50px;
+
+      border-radius: 50%;
+
+      background: white;
+
+      padding: 6px;
+
+      position: absolute;
+
+      top: 50%;
+
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      z-index: 2;
+
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+    }
+
+    .qr-image {
+
+      width: 250px;
+
+      border-radius: 20px;
+
+      padding: 10px;
+
+      background: white;
+
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+      transition: 0.3s;
+
+    }
+
+    .qr-image:hover {
+
+      transform: scale(1.05);
+
+    }
+
+    /* NEON ESERKON */
+
+    .neon-eskon {
+
+      margin-top: 25px;
+
+      font-size: 28px;
+
+      font-weight: bold;
+
+      letter-spacing: 4px;
+
+      color: #1e2a78;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      gap: 6px;
+
+      text-shadow:
+
+        0 0 5px #1e2a78,
+
+        0 0 15px #1e2a78,
+
+        0 0 25px #1e2a78;
+
+      animation: neonGlow 2s infinite;
+
+    }
+
+    .neon-logo {
+
+      width: 36px;
+
+      height: 36px;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+
+      background: white;
+
+      padding: 3px;
+
+      box-shadow: 0 0 10px #1e2a78;
+
+    }
+
+    @keyframes neonGlow {
+
+      0% { opacity: 1; transform: scale(1); }
+
+      50% { opacity: 0.7; transform: scale(1.05); }
+
+      100% { opacity: 1; transform: scale(1); }
+
+    }
+
+    .qr-text {
+
+      margin-top: 15px;
+
+      font-size: 14px;
+
+      color: #555;
+
+      opacity: 0.8;
+
+    }
+
+    .home-btn {
+
+      position: fixed;
+
+      bottom: 20px;
+
+      right: 20px;
+
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+
+      color: white;
+
+      padding: 12px 18px;
+
+      border-radius: 30px;
+
+      text-decoration: none;
+
+      font-weight: 600;
+
+      font-size: 14px;
+
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+
+      z-index: 9999;
+
+    }
+
+    .home-btn:hover {
+
+      transform: scale(1.08);
+
+    }
+
   </style>
+
 </head>
+
 <body>
-<div class="hero">
-  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEuqMyi9iTUz8Mtp8GN85InHVgANQHOXEAQhjhZHJsilqa9FrWXikcX1pAa7Xi2nQfFDblyewwpkRGiWTxlKOmXWJluZwqaPy5yRodC2AXEuvp5XwV5qLDbhAFJifc7ntFnD8WJ-IkFTfPFrWkZzPV7yiYVyL-HIsr-NVnKpnocHvknEixxC0UhSkMw5BX/s320/TRANSPARAN%20LOGO.png" alt="ESERKON Logo" class="big-logo">
-  <div class="hero-text">
-    <h1>
-      <span class="eskon-white">E S E R K</span>
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEuqMyi9iTUz8Mtp8GN85InHVgANQHOXEAQhjhZHJsilqa9FrWXikcX1pAa7Xi2nQfFDblyewwpkRGiWTxlKOmXWJluZwqaPy5yRodC2AXEuvp5XwV5qLDbhAFJifc7ntFnD8WJ-IkFTfPFrWkZzPV7yiYVyL-HIsr-NVnKpnocHvknEixxC0UhSkMw5BX/s320/TRANSPARAN%20LOGO.png" alt="ESERKON" class="inline-logo">
-      <span class="eskon-white">N</span>
-    </h1>
-    <p>
-      <span class="green">EĞİTİM</span>
-      <span class="orange">SOSYAL ETKİNLİK</span>
-      <span class="darkred">VE</span>
-      <span class="eskon-white">REHBERLİK</span>
-      <span class="purple">KONSEYİ</span>
-    </p>
-  </div>
-</div>
 
-<!-- QR Kodları -->
-<div class="qr-container">
-  <div class="qr-box">
-    <div class="title">📲 QR Kodu Tarat</div>
-    <div class="subtitle">💼 Dijital Kartvizite Anında Ulaş</div>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://www.eserkon.com.tr/" alt="Dijital Kartvizit QR">
-  </div>
-  <div class="qr-box">
-    <div class="title">📞 İletişim QR’sı</div>
-    <div class="subtitle">📝 Bize Ulaşın Formu</div>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://www.eserkon.com.tr/bizeulasin" alt="Bize Ulaşın Form QR">
-  </div>
-</div>
+  <!-- ANA SAYFAYA DÖN -->
 
-<!-- Duyurular / Etkinlikler -->
-<div class="events-section">
-  <div class="event-card">
-    <h3>📚 Ücretsiz Etüt Programı</h3>
-    <p>Öğrencilerimiz için ücretsiz etüt programımız başladı.</p>
-    <button onclick="window.location.href='#'">Detayları Gör & Başvur</button>
-  </div>
-  <div class="event-card">
-    <h3>🎓 Burs Başvuruları</h3>
-    <p>İhtiyaç sahibi öğrenciler için burs başvuruları başladı.</p>
-    <button onclick="window.location.href='#'">Detayları Gör & Başvur</button>
-  </div>
-  <div class="event-card">
-    <h3>🤝 Sosyal Etkinlik</h3>
-    <p>Topluluk etkinliklerimize katılmak için başvurun.</p>
-    <button onclick="window.location.href='#'">Detayları Gör & Başvur</button>
-  </div>
-  <div class="event-card">
-    <h3>🚌 Şehir İçi ve Dışı Geziler</h3>
-    <p>Gezi turlarımızla eğlenceli anlar yaşayın.</p>
-    <button onclick="window.location.href='#'">Detayları Gör & Başvur</button>
-  </div>
-  <div class="event-card">
-    <h3>🎵 Konser Katılımları</h3>
-    <p>Kültürel etkinliklerimize katılın.</p>
-    <button onclick="window.location.href='#'">Detayları Gör & Başvur</button>
-  </div>
-</div>
+  <a href="anasayfa.html"class="home-btn">🏠 Ana Sayfaya Dön</a>
 
-<!-- Popup placeholders -->
-<div id="gonulluForm" class="popup"><div class="popup-content"><span class="close-btn">×</span></div></div>
-<div id="ogrenciForm" class="popup"><div class="popup-content"><span class="close-btn">×</span></div></div>
-<div id="uyeForm" class="popup"><div class="popup-content"><span class="close-btn">×</span></div></div>
-<div id="destekForm" class="popup"><div class="popup-content"><span class="close-btn">×</span></div></div>
+  <!-- QR KART -->
 
-<script>
-  document.querySelectorAll('.fancy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.getAttribute('data-target');
-      const popup = document.getElementById(target);
-      if (popup) popup.classList.add('active');
-    });
-  });
-  document.querySelectorAll('.close-btn, .popup').forEach(el => {
-    el.addEventListener('click', e => {
-      if (e.target.classList.contains('close-btn') || e.target.classList.contains('popup')) {
-        document.querySelectorAll('.popup').forEach(p => p.classList.remove('active'));
-      }
-    });
-  });
+  <div class="qr-card">
 
-  // Ses çalma
-  const audio = document.getElementById('myAudio');
-  document.body.addEventListener('click', () => {
-    audio.play().catch(err => console.log("Ses çalınamadı:", err));
-  }, { once: true });
-</script>
+    <!-- BAŞLIK -->
 
-<!-- Ses -->
-<audio id="myAudio" src="assets/kadin-sesi.mp3" preload="auto"></audio>
+    <div class="qr-title">
 
-<!-- Ana sayfaya dön -->
-<a href="anasayfa.html" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #0077b6;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-  z-index: 9999;
-  font-family: 'Poppins', sans-serif;
-">🏠 Ana Sayfaya Git</a>
+      <span class="line1">📲 QR Kodu Tarat</span>
+
+      <span class="line2">💼 Dijital Kartvizite Anında Ulaş</span>
+
+    </div>
+
+    <!-- QR KODU -->
+
+    <div class="qr-wrapper">
+
+      <!-- Yeni QR: içinde ESERKON logolu -->
+
+      <img class="qr-logo"
+
+           src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNy5QU8NfJS6NTjx8VuJ0Yldl1up8h2aYUAEfYJHrFjc-wKfbRpmKfzMtb4JkydIIEcNXe9Icc-hmcqqO6jCNSX0Lfm3Ikl524vQvF8in5c6ni3A0i4HtCc3pJTHa9znfYk98m-7kHZRpBpde5VxI-N8rdRnqf-ABVnzcOq0w98EQPwVA9Zjfh_pcgFaA/s1024/d%C3%BCzeltildi.jpg" />
+
+      <img class="qr-image"
+
+           src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Feskon-baskan-kartvizit.blogspot.com%2F" />
+
+    </div>
+
+    <!-- NEON ESERKON -->
+
+    <div class="neon-eskon">
+
+      E S E R
+
+      <img class="neon-logo"
+
+           src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNy5QU8NfJS6NTjx8VuJ0Yldl1up8h2aYUAEfYJHrFjc-wKfbRpmKfzMtb4JkydIIEcNXe9Icc-hmcqqO6jCNSX0Lfm3Ikl524vQvF8in5c6ni3A0i4HtCc3pJTHa9znfYk98m-7kHZRpBpde5VxI-N8rdRnqf-ABVnzcOq0w98EQPwVA9Zjfh_pcgFaA/s1024/d%C3%BCzeltildi.jpg" />
+
+      K O N
+
+    </div>
+
+    <!-- HOŞGELDİNİZ -->
+
+    <div class="qr-title">
+
+      <span class="line2">Hoşgeldiniz</span>
+
+    </div>
+
+  </div>
 
 </body>
+
 </html>
