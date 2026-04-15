@@ -133,24 +133,22 @@
             filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
         }
 
+        .meta, .muted, .link-box a, .link-box span {
+            color: #ffffff;
+        }
+
         .meta {
             font-size: 15.5px;
-            color: #ffffff;
             position: relative;
             z-index: 2;
             line-height: 1.35;
         }
         .muted {
-            color: #ffffff;
             font-weight: 600;
             font-size: 13px;
             margin-bottom: 4px;
             display: block;
             letter-spacing: 0.3px;
-        }
-        .link-box a, .link-box span {
-            color: #ffffff;
-            text-decoration: none;
         }
 
         /* Alt Butonlar */
@@ -171,8 +169,6 @@
             cursor: pointer;
             letter-spacing: 0.6px;
             font-size: 15px;
-            position: relative;
-            overflow: hidden;
             min-width: 160px;
             color: #ffffff;
         }
@@ -197,7 +193,7 @@
             z-index: 4;
         }
 
-        /* === YENİ ANA SAYFA BUTONU === */
+        /* Ana Sayfa Butonu - Sağ Alt Köşe */
         .home-btn {
             position: fixed;
             bottom: 20px;
@@ -205,12 +201,12 @@
             background: linear-gradient(90deg, #4f46e5, #6366f1);
             color: #ffffff;
             border: none;
-            padding: 12px 20px;
+            padding: 12px 22px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 14.5px;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.45);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -219,24 +215,20 @@
             text-decoration: none;
         }
         .home-btn:hover {
-            transform: translateY(-3px) scale(1.05);
+            transform: translateY(-3px) scale(1.06);
             box-shadow: 0 12px 35px rgba(99, 102, 241, 0.6);
-        }
-        .home-btn i {
-            font-size: 18px;
         }
 
         @media (max-width: 540px) {
             .card { padding: 24px 18px; border-radius: 20px; }
-            .org-title { font-size: 27px; }
             .main-logo { width: 78px; height: 78px; }
             .badge { width: 54px; height: 54px; }
             .badge img { width: 38px; height: 38px; }
             .home-btn {
                 bottom: 15px;
                 right: 15px;
-                padding: 10px 16px;
-                font-size: 13px;
+                padding: 10px 18px;
+                font-size: 13.5px;
             }
         }
     </style>
@@ -255,9 +247,8 @@
             <h1 class="org-title">Kurucu &amp; Başkan Şahin UYMAZ</h1>
         </div>
 
-        <!-- Buton Grid -->
+        <!-- Link Grid -->
         <div class="grid">
-            <!-- SOL TARAF -->
             <div class="col">
                 <div class="link-box" data-href="https://wa.me/905435871765">
                     <div class="badge"><img src="https://raw.githubusercontent.com/Eserkon/Eserkon/main/assets/eses.logo.png" alt="WhatsApp"></div>
@@ -296,7 +287,6 @@
                 </div>
             </div>
 
-            <!-- SAĞ TARAF -->
             <div class="col">
                 <div class="link-box" data-href="https://t.me/eserkontr">
                     <div class="badge"><img src="https://raw.githubusercontent.com/Eserkon/Eserkon/main/assets/eses.logo.png" alt="Sosyal Medya"></div>
@@ -336,7 +326,7 @@
             </div>
         </div>
 
-        <!-- Kartvizit İndirme Butonları -->
+        <!-- Kartvizit Butonları -->
         <div class="actions">
             <button onclick="window.location.href='https://wa.me/905435871765'" class="btn save">WhatsApp ile İletişime Geç</button>
             <button onclick="downloadKartvizit()" class="btn vcf">Kartviziti İndir</button>
@@ -348,15 +338,35 @@
         </div>
     </main>
 
-    <!-- SAĞ ALT KÖŞE ANA SAYFA BUTONU -->
-      <a href="https://eserkon.com.tr/" class="home-btn">🏠 Ana Sayfaya Dön</a>
-
+    <!-- ANA SAYFA BUTONU - SAĞ ALT KÖŞE -->
+    <a href="https://www.eserkon.com.tr" target="_blank" class="home-btn">
+        ← Ana Sayfaya Dön
+    </a>
 
     <script>
-        // Sayfa açıldığında kartvizit otomatik indirilir
+        let hasDownloaded = false;   // İndirme kontrolü
+
+        // Sayfa ilk yüklendiğinde SADECE BİR KEZ otomatik indir
         window.onload = function() {
-            const kartvizitUrl = "kartvizit.pdf";           // ← Kendi kartvizit dosya adını buraya yaz
-            const indirilenIsim = "Sahin-Uymaz-ESERKON-Kartvizit.pdf"; 
+            if (!hasDownloaded) {
+                const kartvizitUrl = "kartvizit.pdf";           // ← Burayı kendi kartvizit dosya adınla değiştir
+                const indirilenIsim = "Sahin-Uymaz-ESERKON-Kartvizit.pdf";
+
+                const link = document.createElement('a');
+                link.href = kartvizitUrl;
+                link.download = indirilenIsim;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                hasDownloaded = true;   // Artık tekrar otomatik indirme olmasın
+            }
+        };
+
+        // Manuel indirme butonu
+        function downloadKartvizit() {
+            const kartvizitUrl = "kartvizit.pdf";           
+            const indirilenIsim = "Sahin-Uymaz-ESERKON-Kartvizit.pdf";
 
             const link = document.createElement('a');
             link.href = kartvizitUrl;
@@ -364,9 +374,7 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-        };
-
-     
+        }
     </script>
 </body>
 </html>
